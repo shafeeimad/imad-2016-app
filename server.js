@@ -83,8 +83,10 @@ return htmltemplate;
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/article-one', function (req, res){
-    res.send(createtemplate(articleone));
+app.get('/:articlename', function (req, res){
+    //articlename == article-one
+    //articles[articlename] == {} content object for artice one
+    res.send(createtemplate(articles[articlename]));
 });
 app.get('/article-two', function (req, res){
    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
