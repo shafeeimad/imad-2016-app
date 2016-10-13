@@ -7,7 +7,7 @@ app.use(morgan('combined'));
 
 
 var articles={
-articleone: {
+'article-one': {
 title:'Article one | shafeeq',
 heading:' Article one',
 date:'oct 10,2016',
@@ -26,7 +26,7 @@ content:`   <p>
 
 
 },
-articletwo:{title:'Article two | shafeeq',
+'article-two':{title:'Article two | shafeeq',
 heading:' Article two',
 date:'oct 10,2016',
 content:`   <p>
@@ -34,7 +34,7 @@ content:`   <p>
                     </p>`
 
 },
-articlethree:{title:'Article three | shafeeq',
+'article-three':{title:'Article three | shafeeq',
 heading:' Article three',
 date:'oct 11,2016',
 content:`   <p>
@@ -86,6 +86,7 @@ app.get('/', function (req, res) {
 app.get('/:articlename', function (req, res){
     //articlename == article-one
     //articles[articlename] == {} content object for artice one
+    var articlename= req.params.articlename;
     res.send(createtemplate(articles[articlename]));
 });
 app.get('/article-two', function (req, res){
